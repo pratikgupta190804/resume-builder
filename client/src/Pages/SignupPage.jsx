@@ -10,7 +10,7 @@ function SignupPage() {
 
   useEffect(() => {
     toggleNav(false);
-  }, []);
+  }, [toggleNav]);
 
   const signupForm = (data) => {
     signup(data).then(() => {
@@ -23,26 +23,35 @@ function SignupPage() {
     getGooglePage();
   };
   return (
-    <div className="flex bg-gray-900 min-h-screen">
+    <div className="flex min-h-screen" style={{ backgroundColor: "#E9F1FA" }}>
       {/* Left Section - Branding */}
-      <div className="hidden md:flex md:w-[45%] items-center justify-center bg-gray-800 rounded-r-[3rem] border border-gray-700 text-white h-screen flex-col shadow-2xl">
+      <div
+        className="hidden md:flex md:w-[45%] items-center justify-center rounded-r-[3rem] border h-screen flex-col shadow-2xl"
+        style={{ backgroundColor: "#00ABE4", borderColor: "#0089B6" }}
+      >
         <img src="/logo.png" alt="chit-chat-logo" className="h-30 w-55 mb-4" />
         <div className="space-y-4 text-center px-8">
           <h1 className="text-5xl font-extrabold text-white">
-            Your Voice
+            Your Career
             <br />
-            <span className="text-blue-400">Amplified</span>
+            <span style={{ color: "#E9F1FA" }}>Elevated</span>
           </h1>
-          <p className="mt-4 text-lg font-medium text-gray-400">
-            Sign up for messaging that truly resonates!
+          <p className="mt-4 text-3xl font-bold text-blue-950">
+            Sign up to create professional resumes that stand out!
           </p>
         </div>
       </div>
 
       {/* Right Section - Form */}
       <div className="flex-1 flex items-center justify-center">
-        <div className="w-full max-w-md p-8 bg-gray-800 rounded-2xl shadow-2xl border border-gray-700">
-          <h3 className="text-2xl font-bold text-center mb-6 text-white">
+        <div
+          className="w-full max-w-md p-8 rounded-2xl shadow-2xl border"
+          style={{ backgroundColor: "#FFFFFF", borderColor: "#CDDEEF" }}
+        >
+          <h3
+            className="text-2xl font-bold text-center mb-6"
+            style={{ color: "#333333" }}
+          >
             Create Your Account
           </h3>
 
@@ -51,7 +60,8 @@ function SignupPage() {
             <div>
               <label
                 htmlFor="fullname"
-                className="block text-sm font-medium text-gray-200"
+                className="block text-sm font-medium"
+                style={{ color: "#333333" }}
               >
                 Name
               </label>
@@ -59,9 +69,12 @@ function SignupPage() {
                 id="fullname"
                 type="text"
                 {...register("fullname", { required: true })}
-                className="mt-1 block w-full h-12 border border-gray-600 bg-gray-700 text-white rounded-lg shadow-sm focus:ring-blue-400 focus:border-blue-400 placeholder-gray-400 placeholder:truncate placeholder:px-2"
+                className="mt-1 block w-full h-12 border rounded-lg shadow-sm focus:ring-2 focus:border-2 placeholder-gray-500 placeholder:truncate placeholder:px-2"
                 placeholder="Your full name"
                 style={{
+                  backgroundColor: "#E9F1FA",
+                  color: "#333333",
+                  borderColor: "#CDDEEF",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   whiteSpace: "nowrap",
@@ -73,7 +86,8 @@ function SignupPage() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-200"
+                className="block text-sm font-medium"
+                style={{ color: "#333333" }}
               >
                 E‑mail
               </label>
@@ -81,9 +95,12 @@ function SignupPage() {
                 id="email"
                 type="email"
                 {...register("email", { required: true })}
-                className="mt-1 block w-full h-12 border border-gray-600 bg-gray-700 text-white rounded-lg shadow-sm focus:ring-blue-400 focus:border-blue-400 placeholder-gray-400 placeholder:truncate placeholder:px-2"
+                className="mt-1 block w-full h-12 border rounded-lg shadow-sm focus:ring-2 focus:border-2 placeholder-gray-500 placeholder:truncate placeholder:px-2"
                 placeholder="you@example.com"
                 style={{
+                  backgroundColor: "#E9F1FA",
+                  color: "#333333",
+                  borderColor: "#CDDEEF",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   whiteSpace: "nowrap",
@@ -95,7 +112,8 @@ function SignupPage() {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-200"
+                className="block text-sm font-medium"
+                style={{ color: "#333333" }}
               >
                 Password
               </label>
@@ -103,9 +121,12 @@ function SignupPage() {
                 id="password"
                 type="password"
                 {...register("password", { required: true })}
-                className="mt-1 block w-full h-12 border border-gray-600 bg-gray-700 text-white rounded-lg shadow-sm focus:ring-blue-400 focus:border-blue-400 placeholder-gray-400 placeholder:truncate placeholder:px-2"
+                className="mt-1 block w-full h-12 border rounded-lg shadow-sm focus:ring-2 focus:border-2 placeholder-gray-500 placeholder:truncate placeholder:px-2"
                 placeholder="Enter a secure password"
                 style={{
+                  backgroundColor: "#E9F1FA",
+                  color: "#333333",
+                  borderColor: "#CDDEEF",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   whiteSpace: "nowrap",
@@ -116,7 +137,8 @@ function SignupPage() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-200 h-12 shadow-lg"
+              className="w-full text-white font-semibold rounded-lg transition-all duration-200 h-12 shadow-lg"
+              style={{ backgroundColor: "#00ABE4" }}
               disabled={isSigningUp}
             >
               {isSigningUp ? "Creating Account..." : "Sign Up"}
@@ -124,13 +146,20 @@ function SignupPage() {
           </form>
 
           <div className="my-6 flex items-center">
-            <hr className="flex-grow border-gray-600" />
-            <span className="mx-2 text-gray-400">OR</span>
-            <hr className="flex-grow border-gray-600" />
+            <hr className="flex-grow" style={{ borderColor: "#CDDEEF" }} />
+            <span className="mx-2" style={{ color: "#555555" }}>
+              OR
+            </span>
+            <hr className="flex-grow" style={{ borderColor: "#CDDEEF" }} />
           </div>
 
           <button
-            className="w-full py-3 flex items-center justify-center border border-gray-600 rounded-lg hover:bg-gray-700 transition-all duration-200 bg-gray-800 text-white shadow-lg"
+            className="w-full py-3 flex items-center justify-center border rounded-lg transition-all duration-200 shadow-lg"
+            style={{
+              backgroundColor: "#FFFFFF",
+              borderColor: "#CDDEEF",
+              color: "#333333",
+            }}
             onClick={handlegoogle}
           >
             <img
@@ -141,11 +170,12 @@ function SignupPage() {
             Continue with Google
           </button>
 
-          <p className="mt-6 text-center text-sm text-gray-400">
+          <p className="mt-6 text-center text-sm" style={{ color: "#555555" }}>
             Already have an account?{" "}
             <Link
               to="/login"
-              className="text-blue-400 font-medium hover:text-blue-300 hover:underline transition-colors"
+              className="font-medium hover:underline transition-colors"
+              style={{ color: "#00ABE4" }}
             >
               Log In
             </Link>
